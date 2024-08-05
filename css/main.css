@@ -1,0 +1,7 @@
+canvas{
+    width: 70vw;
+    height: 80vw;
+}
+.img-container{
+ display: flex;
+}

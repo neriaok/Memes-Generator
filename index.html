@@ -22,7 +22,7 @@
     <input type="search">
 
     text:
-    <input class="text" onkeypress="setLineTxt()" type="text">
+    <input class="text" onkeypress="renderMeme()" type="text">
     
     <button onclick="onClearCanvas()">Clear</button>
 
@@ -30,7 +30,7 @@
 
     <div class="canvas-container">
         <canvas id="my-canvas" width="400" height="400" style="outline: 1px solid green"
-            onclick="drawRect(event)"></canvas>
+            onclick="onDraw(event)"></canvas>
     </div>
 
     <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>

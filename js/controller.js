@@ -1,14 +1,14 @@
 console.log(gMeme);
 console.log(gImgs);
 
-function renderMeme(id) {
-    var idx = id - 1
-    console.log(idx);
-    
-    var meme = gCentences[idx]
-    console.log(meme);
+function renderMeme() {
 
-    setLineTxt(meme)
+    gMeme[0].lines[0].txt =  document.querySelector('.text').value
+    
+    // var meme = gCentences[idx]
+    // console.log(meme);
+
+    // setLineTxt()
 }
 
 function renderImg(elImg, id) {
@@ -21,5 +21,5 @@ function renderImg(elImg, id) {
     gMeme.push(createMeme(gCentences[id-1], id, id - 1))
     console.log(gMeme);
 
-    renderMeme(id)
+    setLineTxt()
 }

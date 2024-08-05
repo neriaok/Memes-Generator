@@ -75,8 +75,9 @@ function _createImgs() {
     // _saveCarsToStorage()
 }
 
-function setLineTxt(meme) {
-    document.querySelector('.text').value = meme
+function setLineTxt() {
+    document.querySelector('.text').value = gMeme[0].lines[0].txt
+    
     // renderMeme()
 }
 function clearText(){

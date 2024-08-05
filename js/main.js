@@ -21,17 +21,29 @@ function resizeCanvas() {
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
 }
-
-function drawRect({ offsetX, offsetY, }) {
-    gCtx.beginPath()
-    gCtx.strokeStyle = 'purple'
-    gCtx.fillStyle = 'royalblue'
-    gCtx.lineWidth = 3
-    gCtx.rect(offsetX, offsetY, 50, 50)
-    gCtx.fill()
-    gCtx.stroke()
-
+function onDraw(ev) {
+    if (!gMeme.length) {
+        alert('Hi! new here ?choose img!')
+        return
+    }
+    var text = gMeme[0].lines[0].txt
+    const { offsetX, offsetY } = ev
+    drawText(text, offsetX, offsetY)
 }
+
+function drawText(text, x, y) {
+
+    gCtx.lineWidth = 2
+    gCtx.strokeStyle = 'brown'
+    gCtx.fillStyle = 'black'
+    gCtx.font = '40px Arial'
+    gCtx.textAlign = 'center'
+    gCtx.textBaseline = 'middle'
+
+    gCtx.fillText(text, x, y)
+    gCtx.strokeText(text, x, y)
+}
+
 function onUploadImg() {
     // Gets the image from the canvas
     const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
