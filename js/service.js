@@ -41,7 +41,7 @@ function getMeme() {
     return gMeme
 }
 
-function createMeme(meme, imgId, lineIdx) {
+function createMeme(meme, imgId, lineIdx , clr) {
     return {
         selectedImgId: imgId,
         selectedLineIdx: lineIdx,
@@ -49,7 +49,7 @@ function createMeme(meme, imgId, lineIdx) {
             {
                 txt: meme,
                 size: 20,
-                color: 'red'
+                color: `${clr}`
             }
         ]
     }

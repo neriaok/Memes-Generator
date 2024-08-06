@@ -32,11 +32,15 @@ function onDraw(ev) {
 }
 
 function drawText(text, x, y) {
+var size = gMeme[0].lines[0].size
+console.log('size',size);
+var color = gMeme[0].lines[0].color
+console.log('color',color);
 
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'brown'
-    gCtx.fillStyle = 'black'
-    gCtx.font = '40px Arial'
+    gCtx.strokeStyle = `${color}`
+    gCtx.fillStyle = 'white'
+    gCtx.font = `${size}px Arial`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
@@ -89,4 +93,11 @@ function onClearCanvas() {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
     gMeme = []
     clearText()
+}
+function changeSize(chose){
+    if(chose){
+        gMeme[0].lines[0].size++
+    } else{
+        gMeme[0].lines[0].size--
+    }
 }
