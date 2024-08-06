@@ -14,18 +14,16 @@
         <div class="logo">Logo</div>
         <nav class="main-nav-container">
             <div class="main-nav">
-                <a href="#">Gallery</a>
+                <a onclick="showGallery()" href="#">Gallery</a>
                 <a href="#">Memes</a>
                 <a href="#">about</a>
             </div>
         </nav>
     </header>
-    <div class="toolbar">
-        <input class="search-input"  placeholder="SEARCH" type="search">
 
-        <input type="file" class="file-input-btn" name="image" onchange="onImgInput(event)" accept="image/*" />
-
+    <div class="editor-toolbar">
     </div>
+
     <div class="canvas-container">
         <canvas id="my-canvas" width="400" height="400" onclick="onDraw(event)">
         </canvas>
@@ -36,7 +34,7 @@
             <input class="text" onchange="renderMeme()" type="text">
             color:
             <input onchange="renderMeme()" class="color" type="color">
-            
+
             <div class="size-btn">
                 <button onclick="changeSize(true)">A+</button>
                 <button onclick="changeSize(false)">A-</button>
@@ -50,10 +48,21 @@
 
         </div>
     </div>
-    <section class="main-container">
-        <main class="img-container">
-        </main>
-    </section>
+
+    <dialog class="gallery">
+        <section class="main-container">
+            <div class="toolbar">
+                <input class="search-input" placeholder="SEARCH" type="search">
+                
+                <h3 class="gallery-title">choose and edit</h3>
+                <label for="upload">UPLOAD IMG</label>
+                <input type="file" class="file-input-btn" name="image" onchange="onImgInput(event)" accept="image/*" id="upload"/>
+
+            </div>
+            <main class="img-container">
+            </main>
+        </section>
+    </dialog>
 
     <script src="/NeriaOkabi -Meme Generator/js/gallery-controller.js"></script>
     <script src="/NeriaOkabi -Meme Generator/js/main.js"></script>

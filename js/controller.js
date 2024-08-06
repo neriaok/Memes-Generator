@@ -10,6 +10,7 @@ function renderMeme() {
 }
 
 function renderImg(elImg, id) {
+    closeGallery()
     gMeme = []
     clearText()
 

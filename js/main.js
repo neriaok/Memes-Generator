@@ -8,8 +8,8 @@ function init() {
     gCtx = gElCanvas.getContext('2d')
     resizeCanvas()
     _createImgs()
-
     renderGallery()
+    showGallery()
 }
 
 function downloadImg(elLink) {
@@ -32,10 +32,10 @@ function onDraw(ev) {
 }
 
 function drawText(text, x, y) {
-var size = gMeme[0].lines[0].size
-console.log('size',size);
-var color = gMeme[0].lines[0].color
-console.log('color',color);
+    var size = gMeme[0].lines[0].size
+    console.log('size', size);
+    var color = gMeme[0].lines[0].color
+    console.log('color', color);
 
     gCtx.lineWidth = 2
     gCtx.strokeStyle = `${color}`
@@ -94,10 +94,10 @@ function onClearCanvas() {
     gMeme = []
     clearText()
 }
-function changeSize(chose){
-    if(chose){
+function changeSize(chose) {
+    if (chose) {
         gMeme[0].lines[0].size++
-    } else{
+    } else {
         gMeme[0].lines[0].size--
     }
 }
