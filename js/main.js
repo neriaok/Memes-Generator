@@ -8,8 +8,9 @@ function init() {
     gCtx = gElCanvas.getContext('2d')
     resizeCanvas()
     _createImgs()
-    renderGallery()
+    renderGallery('all')
     showGallery()
+
 }
 
 function downloadImg(elLink) {

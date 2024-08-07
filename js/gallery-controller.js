@@ -1,5 +1,6 @@
-function renderGallery() {
-    const strHTMLs = gImgs.map(([{ url, id }]) => `
+function renderGallery(filter) {
+    var imgs = filterImgs(filter)
+    const strHTMLs = imgs.map(([{ url, id }]) => `
     <img onclick="renderImg(this ,${id})" src="/NeriaOkabi -Meme Generator/${url}"  alt="">`)
     document.querySelector('.main-container .img-container').innerHTML = strHTMLs.join('')
 }

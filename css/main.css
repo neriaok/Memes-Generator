@@ -50,6 +50,18 @@ header {
     text-shadow: 0 0 10px #b9003e;
 
 }
+.filter{
+    display: flex;
+    justify-content: space-between;
+}
+.filter label{
+    width: 20vh;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 8px 0 #000000;
+    text-align: center;
+    color: #b9003e;
+    
+}
 
 .file-input-btn {
     display: none;

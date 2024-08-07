@@ -1,10 +1,11 @@
 'use strict'
 
 const STORAGE_KEY = 'meme'
-
 var gMeme = []
 
 var gImgs = []
+
+const PICTURE_NUM = 18
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
@@ -41,7 +42,7 @@ function getMeme() {
     return gMeme
 }
 
-function createMeme(meme, imgId, lineIdx , clr) {
+function createMeme(meme, imgId, lineIdx, clr) {
     return {
         selectedImgId: imgId,
         selectedLineIdx: lineIdx,
@@ -55,32 +56,62 @@ function createMeme(meme, imgId, lineIdx , clr) {
     }
 }
 
+
 function createImg(ID) {
     return [
         {
             id: ID,
             url: `img/${ID}.jpg`,
-            keywords: [
-                'funny',
-                'cat'
-            ]
+            keywords: ['all']
         }
     ]
 }
 
 function _createImgs() {
-    for (let i = 1; i < 19; i++) {
+    for (let i = 1; i < PICTURE_NUM + 1; i++) {
         gImgs.push(createImg(i))
     }
+    putKeywords()
     // _saveCarsToStorage()
 }
+function putKeywords() {
+    for (let i = 0; i < PICTURE_NUM + 1; i++) {
+        if (i === 4 || i === 6 || i === 8 || i === 9 || i === 15) {
+            gImgs[i][0].keywords.push('funny')
+        }
+        if (i === 1 || i === 3 || i === 2) {
+            gImgs[i][0].keywords.push('animal')
+        }
+        if (i === 10 || i === 13 || i === 14 || i === 16) {
+            gImgs[i][0].keywords.push('bad')
+        }
+        if (i === 0 || i === 11) {
+            gImgs[i][0].keywords.push('akward')
+        }
+        if (i === 5 || i === 7 || i === 8 || i === 9 || i === 12 || i === 15 || i === 17) {
+            gImgs[i][0].keywords.push('happy')
+        }
+        if (i === 0 || i === 10 || i === 13 || i === 14 || i === 16) {
+            gImgs[i][0].keywords.push('sad')
+        }
+    }
+}
 
+function filterImgs(filterBy) {
+    var imgs = gImgs
+    // console.log(imgs.keywords);
+
+    imgs = imgs.filter(img => img[0].keywords.includes(filterBy))
+    console.log(imgs);
+
+    return imgs
+}
 function setLineTxt() {
     document.querySelector('.text').value = gMeme[0].lines[0].txt
-    
+
     // renderMeme()
 }
-function clearText(){
+function clearText() {
     document.querySelector('.text').value = ''
 }
 
