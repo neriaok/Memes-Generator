@@ -7,7 +7,7 @@ var gImgs = []
 
 const PICTURE_NUM = 18
 
-var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+var gKeywordSearchCountMap = {'all':20 , 'funny': 20, 'animal': 20, 'bad': 20 , 'akward':20,'happy':20,'sad':20 }
 
 var gCentences = [
     "I’m not arguing, I’m just explaining why I’m right",
@@ -97,6 +97,15 @@ function putKeywords() {
     }
 }
 
+function growSize(className){
+    console.log(className);
+    gKeywordSearchCountMap[`${className}`]++
+    var fontSize = gKeywordSearchCountMap[`${className}`]
+    console.log(fontSize);
+    
+    document.querySelector(`.${className}`).style.fontSize = `${fontSize++}` + `px`
+    
+}
 function filterImgs(filterBy) {
     var imgs = gImgs
     // console.log(imgs.keywords);

@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Generator</title>
-    <link rel="stylesheet" href="./NeriaOkabi -Meme Generator/css/main.css">
+    <link rel="stylesheet" href="/NeriaOkabi -Meme Generator/css/main.css">
 </head>
 
 <body onload="init()">
-
     <header class="main-header">
         <div class="logo">Logo</div>
         <nav class="main-nav-container">
@@ -31,7 +30,7 @@
 
         <div class="card">
             text:
-            <input class="text" onchange="renderMeme()" type="text">
+            <textarea class="text" onchange="renderMeme()" type="text"></textarea>
             color:
             <input onchange="renderMeme()" class="color" type="color">
 
@@ -52,7 +51,6 @@
     <dialog class="gallery">
         <section class="main-container">
             <div class="toolbar">
-                <input class="search-input" placeholder="SEARCH" type="search">
                 
                 <h3 class="gallery-title">choose and edit</h3>
                 <label for="upload">UPLOAD IMG</label>
@@ -61,37 +59,37 @@
             </div>
             
             <div class="filter">
-                   <label for="all">all</label>
-                <button onclick="renderGallery('all')"  id="all" href="#" style="display: none;"></button>
+                   <label class="all" for="all">all</label>
+                <button onclick="renderGallery('all') , growSize(this.id)"  id="all" href="#" style="display: none;"></button>
 
-                <label for="funny">funny</label>
-                <button onclick="renderGallery('funny')"  id="funny" href="#" style="display: none;"></button>
+                <label class = "funny" for="funny">funny</label>
+                <button onclick="renderGallery('funny') ,  growSize(this.id)"  id="funny" href="#" style="display: none;"></button>
 
-                <label for="animal">animal</label>
-                <button onclick="renderGallery('animal')" id="animal" href="#" style="display: none;"></button>
+                <label class = "animal" for="animal">animal</label>
+                <button onclick="renderGallery('animal'), growSize(this.id)" id="animal" href="#" style="display: none;"></button>
 
-                <label for="bad">bad</label>
-                <button onclick="renderGallery('bad')"  id="bad" href="#" style="display: none;"></button>
+                <label class = "bad" for="bad">bad</label>
+                <button onclick="renderGallery('bad'),  growSize(this.id)"  id="bad" href="#" style="display: none;"></button>
 
-                <label for="akward">akward</label>
-                <button onclick="renderGallery('akward')" id="akward" href="#" style="display: none;"></button>
+                <label class = "akward" for="akward">akward</label>
+                <button onclick="renderGallery('akward'), growSize(this.id)" id="akward" href="#" style="display: none;"></button>
 
-                <label for="happy">happy</label>
-                <button onclick="renderGallery('happy')"  id="happy" href="#" style="display: none;"></button>
+                <label class="happy" for="happy">happy</label>
+                <button onclick="renderGallery('happy'), growSize(this.id)"  id="happy" href="#" style="display: none;"></button>
 
-                <label for="sad">sad</label>
-                <button onclick="renderGallery('sad')" id="sad" href="#" style="display: none;"></button>
+                <label class="sad" for="sad">sad</label>
+                <button onclick="renderGallery('sad'), growSize(this.id)" id="sad" href="#" style="display: none;"></button>
             </div>
             <main class="img-container">
             </main>
         </section>
     </dialog>
 
-    <script src="./NeriaOkabi -Meme Generator/js/gallery-controller.js"></script>
-    <script src="./NeriaOkabi -Meme Generator/js/main.js"></script>
-    <script src="./NeriaOkabi -Meme Generator/js/storage.service.js"></script>
-    <script src="./NeriaOkabi -Meme Generator/js/service.js"></script>
-    <script src="./NeriaOkabi -Meme Generator/js/controller.js"></script>
+    <script src="/NeriaOkabi -Meme Generator/js/gallery-controller.js"></script>
+    <script src="/NeriaOkabi -Meme Generator/js/main.js"></script>
+    <script src="/NeriaOkabi -Meme Generator/js/storage.service.js"></script>
+    <script src="/NeriaOkabi -Meme Generator/js/service.js"></script>
+    <script src="/NeriaOkabi -Meme Generator/js/controller.js"></script>
 </body>
 
 </html>
