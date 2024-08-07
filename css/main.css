@@ -23,11 +23,6 @@ header {
     background-color: rgb(253, 254, 255);
 }
 
-a:hover {
-
-    box-shadow: initial 0 -6px 0 green;
-}
-
 
 .logo {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -52,6 +47,8 @@ a:hover {
     font-size: 2em;
     letter-spacing: 0.3em;
     color: #FAFAFA;
+    text-shadow: 0 0 10px #b9003e;
+
 }
 
 .file-input-btn {
@@ -97,8 +94,8 @@ canvas {
     padding: 1em;
     align-items: center;
 
-    width: 300px;
-    height: 400px;
+    width: 40vh;
+    height: 40vw;
     background-color: rgb(182, 190, 212);
 }
 
@@ -123,8 +120,8 @@ canvas {
 }
 
 .clear-btn {
-    grid-area: 3/2/4/4;
-    width: 15em;
+    grid-area: 3/1/4/4;
+    width: 18em;
     height: 3em;
     border-radius: 5px;
 
@@ -136,14 +133,18 @@ canvas {
 
 .share-btn {
     grid-area: 4/3/5/4;
-
+    justify-self: end;
 
 }
 
 .download-btn {
     grid-area: 4/1/5/3;
-
-
+    font-family:fantasy;
+    border: outset;
+    box-shadow: 0 4px 8px 0 red;
+    border-radius: 5px;
+    padding: 1em;
+    align-items: center;
 }
 
 .img-container {
