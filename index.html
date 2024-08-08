@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Generator</title>
-    <link rel="stylesheet" href="/NeriaOkabi -Meme Generator/css/main.css">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body onload="init()">
@@ -24,22 +24,27 @@
     </div>
 
     <div class="canvas-container">
-        <canvas id="my-canvas" width="400" height="400" onclick="onDraw(event)">
-        </canvas>
-
+        <div class="canvas-content">
+            <canvas id="my-canvas" width="400" height="400" onclick="onDraw(event)">
+            </canvas>
+            <div class="text-areas"></div>
+        </div>
 
         <div class="card">
             text:
-            <textarea class="text" onchange="renderMeme()" type="text"></textarea>
+            <textarea class="text" onchange="renderMeme()" onkeypress="drawLiveText('hello', 457, 670)" type="text"></textarea>
             color:
             <input onchange="renderMeme()" class="color" type="color">
+
+            <button class="add-txt-btn" onclick="renderTextArea()">add box Text </button>
 
             <div class="size-btn">
                 <button onclick="changeSize(true)">A+</button>
                 <button onclick="changeSize(false)">A-</button>
             </div>
 
-            <a href="#" class="download-btn" onclick="downloadImg(this)" download="my-img.jpg">Download Your Creation</a>
+            <a href="#" class="download-btn" onclick="downloadImg(this)" download="my-img.jpg">Download Your
+                Creation</a>
             <button class="share-btn" onclick="onUploadImg()">
                 share
             </button>
@@ -51,45 +56,53 @@
     <dialog class="gallery">
         <section class="main-container">
             <div class="toolbar">
-                
+
                 <h3 class="gallery-title">choose and edit</h3>
                 <label for="upload">UPLOAD IMG</label>
-                <input type="file" class="file-input-btn" name="image" onchange="onImgInput(event)" accept="image/*" id="upload"/>
+                <input type="file" class="file-input-btn" name="image" onchange="onImgInput(event)" accept="image/*"
+                    id="upload" />
 
             </div>
-            
+
             <div class="filter">
-                   <label class="all" for="all">all</label>
-                <button onclick="renderGallery('all') , growSize(this.id)"  id="all" href="#" style="display: none;"></button>
+                <label class="all" for="all">all</label>
+                <button onclick="renderGallery('all') , growSize(this.id)" id="all" href="#"
+                    style="display: none;"></button>
 
-                <label class = "funny" for="funny">funny</label>
-                <button onclick="renderGallery('funny') ,  growSize(this.id)"  id="funny" href="#" style="display: none;"></button>
+                <label class="funny" for="funny">funny</label>
+                <button onclick="renderGallery('funny') ,  growSize(this.id)" id="funny" href="#"
+                    style="display: none;"></button>
 
-                <label class = "animal" for="animal">animal</label>
-                <button onclick="renderGallery('animal'), growSize(this.id)" id="animal" href="#" style="display: none;"></button>
+                <label class="animal" for="animal">animal</label>
+                <button onclick="renderGallery('animal'), growSize(this.id)" id="animal" href="#"
+                    style="display: none;"></button>
 
-                <label class = "bad" for="bad">bad</label>
-                <button onclick="renderGallery('bad'),  growSize(this.id)"  id="bad" href="#" style="display: none;"></button>
+                <label class="bad" for="bad">bad</label>
+                <button onclick="renderGallery('bad'),  growSize(this.id)" id="bad" href="#"
+                    style="display: none;"></button>
 
-                <label class = "akward" for="akward">akward</label>
-                <button onclick="renderGallery('akward'), growSize(this.id)" id="akward" href="#" style="display: none;"></button>
+                <label class="akward" for="akward">akward</label>
+                <button onclick="renderGallery('akward'), growSize(this.id)" id="akward" href="#"
+                    style="display: none;"></button>
 
                 <label class="happy" for="happy">happy</label>
-                <button onclick="renderGallery('happy'), growSize(this.id)"  id="happy" href="#" style="display: none;"></button>
+                <button onclick="renderGallery('happy'), growSize(this.id)" id="happy" href="#"
+                    style="display: none;"></button>
 
                 <label class="sad" for="sad">sad</label>
-                <button onclick="renderGallery('sad'), growSize(this.id)" id="sad" href="#" style="display: none;"></button>
+                <button onclick="renderGallery('sad'), growSize(this.id)" id="sad" href="#"
+                    style="display: none;"></button>
             </div>
             <main class="img-container">
             </main>
         </section>
     </dialog>
 
-    <script src="/NeriaOkabi -Meme Generator/js/gallery-controller.js"></script>
-    <script src="/NeriaOkabi -Meme Generator/js/main.js"></script>
-    <script src="/NeriaOkabi -Meme Generator/js/storage.service.js"></script>
-    <script src="/NeriaOkabi -Meme Generator/js/service.js"></script>
-    <script src="/NeriaOkabi -Meme Generator/js/controller.js"></script>
+    <script src="./js/gallery-controller.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/storage.service.js"></script>
+    <script src="./js/service.js"></script>
+    <script src="./js/controller.js"></script>
 </body>
 
 </html>

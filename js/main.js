@@ -32,7 +32,21 @@ function onDraw(ev) {
     drawText(text, offsetX, offsetY)
 }
 
+function drawLiveText(){
+    if (!gMeme.length) {
+        alert('Hi! new here ?choose img!')
+        return
+    }
+    renderMeme()
+    var text = gMeme[0].lines[0].txt
+    gCtx.clearRect( 371 , 26)
+    drawText(text, 371 , 26)
+
+}
+
 function drawText(text, x, y) {
+    console.log(x,y);
+    
     var size = gMeme[0].lines[0].size
     console.log('size', size);
     var color = gMeme[0].lines[0].color
@@ -94,6 +108,7 @@ function onClearCanvas() {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
     gMeme = []
     clearText()
+    clearTextArea()
 }
 function changeSize(chose) {
     if (chose) {

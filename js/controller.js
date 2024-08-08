@@ -24,3 +24,13 @@ function renderImg(elImg, id) {
 
     setLineTxt()
 }
+
+function renderTextArea(){
+    console.log('text');
+    var strHTML = `<textarea class = "textArea"></textarea>`
+    document.querySelector('.text-areas').innerHTML += strHTML   
+}
+
+function clearTextArea(){
+    document.querySelector('.text-areas').innerHTML = ''  
+}
