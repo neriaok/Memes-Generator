@@ -3,6 +3,7 @@ function renderGallery(filter) {
     const strHTMLs = imgs.map(([{ url, id }]) => `
     <img onclick="renderImg(this ,${id})" src="./${url}"  alt="">`)
     document.querySelector('.main-container .img-container').innerHTML = strHTMLs.join('')
+    
 }
 
 function showGallery() {

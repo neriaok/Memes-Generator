@@ -14,8 +14,8 @@
         <nav class="main-nav-container">
             <div class="main-nav">
                 <a onclick="showGallery()" href="#">Gallery</a>
-                <a href="#">Memes</a>
-                <a href="#">about</a>
+                <a onclick="showMemes()" href="#">Memes</a>
+                <a onclick="showAbout()" href="#">about</a>
             </div>
         </nav>
     </header>
@@ -32,7 +32,7 @@
 
         <div class="card">
             text:
-            <textarea class="text" onchange="renderMeme()" onkeypress="drawLiveText('hello', 457, 670)" type="text"></textarea>
+            <textarea id="text-input" class="text" type="text" oninput="updateCanvasText()"></textarea>
             color:
             <input onchange="renderMeme()" class="color" type="color">
 
@@ -80,8 +80,8 @@
                 <button onclick="renderGallery('bad'),  growSize(this.id)" id="bad" href="#"
                     style="display: none;"></button>
 
-                <label class="akward" for="akward">akward</label>
-                <button onclick="renderGallery('akward'), growSize(this.id)" id="akward" href="#"
+                <label class="awkward" for="awkward">awkward</label>
+                <button onclick="renderGallery('awkward'), growSize(this.id)" id="awkward" href="#"
                     style="display: none;"></button>
 
                 <label class="happy" for="happy">happy</label>
@@ -95,6 +95,43 @@
             <main class="img-container">
             </main>
         </section>
+    </dialog>
+
+    <dialog class="about">
+        <pre>
+            What is the Meme Generator?
+            It's a free online image maker that lets you add custom resizable text, images, and much more to templates.
+            People often use the generator to customize established memes, such as those found in Imgflip's collection
+            of Meme Templates. However, you can also upload your own templates or start from scratch with empty
+            templates.
+        </pre>
+        <button onclick="closeAbout()">close</button>
+    </dialog>
+
+
+    <dialog class="memes">
+        <pre>
+            "I’m not arguing, I’m just explaining why I’m right",
+            "I have a job, and I’m not afraid to use it",
+            "I always arrive late at the office, but I make up for it by leaving early",
+            "I’m not bossy, I just know what you should be doing",
+            "I have a job to maintain my lavish lifestyle",
+            "The only time success comes before work is in the dictionary",
+            "I’m not lazy, I’m just on energy-saving mode",
+            "I’m not a morning person, I’m a coffee person",
+            "I work well under pressure, provided that the pressure is not too intense",
+            "I don’t always love my job, but I love having money",
+            "I’m not arguing, I’m just explaining why I’m right",
+            "I have a job, and I’m not afraid to use it",
+            "I always arrive late at the office, but I make up for it by leaving early",
+            "I’m not bossy, I just know what you should be doing",
+            "I have a job to maintain my lavish lifestyle",
+            "The only time success comes before work is in the dictionary",
+            "I’m not lazy, I’m just on energy-saving mode",
+            "I’m not a morning person, I’m a coffee person"
+        </pre>
+        <button onclick="closeMemes()">close</button>
+
     </dialog>
 
     <script src="./js/gallery-controller.js"></script>

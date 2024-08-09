@@ -4,10 +4,13 @@ const STORAGE_KEY = 'meme'
 var gMeme = []
 
 var gImgs = []
+var gSelectedImg 
+var gEv 
+
 
 const PICTURE_NUM = 18
 
-var gKeywordSearchCountMap = {'all':20 , 'funny': 20, 'animal': 20, 'bad': 20 , 'akward':20,'happy':20,'sad':20 }
+var gKeywordSearchCountMap = {'all':20 , 'funny': 20, 'animal': 20, 'bad': 20 , 'awkward':20,'happy':20,'sad':20 }
 
 var gCentences = [
     "I’m not arguing, I’m just explaining why I’m right",
@@ -72,7 +75,7 @@ function _createImgs() {
         gImgs.push(createImg(i))
     }
     putKeywords()
-    // _saveCarsToStorage()
+    _saveToStorage()
 }
 function putKeywords() {
     for (let i = 0; i < PICTURE_NUM + 1; i++) {
@@ -86,7 +89,7 @@ function putKeywords() {
             gImgs[i][0].keywords.push('bad')
         }
         if (i === 0 || i === 11) {
-            gImgs[i][0].keywords.push('akward')
+            gImgs[i][0].keywords.push('awkward')
         }
         if (i === 5 || i === 7 || i === 8 || i === 9 || i === 12 || i === 15 || i === 17) {
             gImgs[i][0].keywords.push('happy')
@@ -117,11 +120,6 @@ function filterImgs(filterBy) {
 }
 function setLineTxt() {
     document.querySelector('.text').value = gMeme[0].lines[0].txt
-
-    // renderMeme()
-}
-function clearText() {
-    document.querySelector('.text').value = ''
 }
 
 function onImgInput(ev) {
@@ -149,6 +147,6 @@ function onDownloadCanvas(elLink) {
     elLink.download = 'my-img'
 }
 
-function _saveCarsToStorage() {
+function _saveToStorage() {
     saveToStorage(STORAGE_KEY, gMeme)
 }

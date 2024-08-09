@@ -10,23 +10,41 @@ function renderMeme() {
 }
 
 function renderImg(elImg, id) {
+    gSelectedImg = elImg
+    console.log(elImg);
+
     closeGallery()
     gMeme = []
-    clearText()
 
     console.log(elImg);
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
     var startColor = document.querySelector('.color').value
 
-    gMeme.push(createMeme(gCentences[id - 1], id, id - 1 ,startColor ))
+    gMeme.push(createMeme(gCentences[id - 1], id, id - 1, startColor))
     console.log(gMeme);
 
     setLineTxt()
 }
 
+function showMemes() {
+    document.querySelector('.memes').showModal()
 
-
-function clearTextArea(){
-    document.querySelector('.text-areas').innerHTML = ''  
 }
+
+function closeMemes() {
+    document.querySelector('.memes').close()
+}
+
+function showAbout() {
+    document.querySelector('.about').showModal()
+
+}
+
+function closeAbout() {
+    document.querySelector('.about').close()
+}
+
+
+
+
