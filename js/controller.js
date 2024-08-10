@@ -1,5 +1,4 @@
-console.log(gMeme);
-console.log(gImgs);
+'use strict'
 
 function renderMeme() {
     if (!gMeme.length) return

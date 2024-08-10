@@ -15,23 +15,26 @@ function init() {
 
 function updateCanvasText() {
     if (!gMeme.length) return
-      
+
     const text = document.getElementById('text-input').value;
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
     gCtx.drawImage(gSelectedImg, 0, 0, gElCanvas.width, gElCanvas.height)
-    
+
     const { offsetX, offsetY } = gEv
     drawText(text, offsetX, offsetY)
 }
+
 function downloadImg(elLink) {
-    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    const imgContent = gElCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
 }
+
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
 }
+
 function onDraw(ev) {
     if (!gMeme.length) {
         alert('Hi! new here ?choose img!')
@@ -40,19 +43,18 @@ function onDraw(ev) {
     const text = document.getElementById('text-input').value;
 
     const { offsetX, offsetY } = ev
-    gEv = {offsetX, offsetY}
+    gEv = { offsetX, offsetY }
     updateCanvasText()
 }
 
-
 function drawText(text, x, y) {
-    console.log(x,y);
-    
+    console.log(x, y);
+
     var size = gMeme[0].lines[0].size
     console.log('size', size);
     var color = gMeme[0].lines[0].color
     console.log('color', color);
-    
+
     gCtx.lineWidth = 2
     gCtx.strokeStyle = `${color}`
     gCtx.fillStyle = 'white'
@@ -105,10 +107,12 @@ function doUploadImg(imgDataUrl, onSuccess) {
     XHR.open('POST', '//ca-upload.com/here/upload.php')
     XHR.send(formData)
 }
+
 function onClearCanvas() {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
     gCtx.drawImage(gSelectedImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
+
 function changeSize(chose) {
     if (chose) {
         gMeme[0].lines[0].size++

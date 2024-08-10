@@ -34,12 +34,6 @@ var gCentences = [
 ]
 
 
-
-
-console.log(gMeme);
-
-
-
 function getMeme() {
 
     return gMeme
@@ -77,6 +71,7 @@ function _createImgs() {
     putKeywords()
     _saveToStorage()
 }
+
 function putKeywords() {
     for (let i = 0; i < PICTURE_NUM + 1; i++) {
         if (i === 4 || i === 6 || i === 8 || i === 9 || i === 15) {
@@ -109,6 +104,7 @@ function growSize(className){
     document.querySelector(`.${className}`).style.fontSize = `${fontSize++}` + `px`
     
 }
+
 function filterImgs(filterBy) {
     var imgs = gImgs
     // console.log(imgs.keywords);
@@ -118,6 +114,7 @@ function filterImgs(filterBy) {
 
     return imgs
 }
+
 function setLineTxt() {
     document.querySelector('.text').value = gMeme[0].lines[0].txt
 }
@@ -126,7 +123,6 @@ function onImgInput(ev) {
 
     loadImageFromInput(ev, renderImg)
 }
-
 
 function loadImageFromInput(ev, onImageReady) {
     const reader = new FileReader()
@@ -137,9 +133,6 @@ function loadImageFromInput(ev, onImageReady) {
     }
     reader.readAsDataURL(ev.target.files[0])
 }
-
-
-
 
 function onDownloadCanvas(elLink) {
     const dataUrl = gCanvas.toDataURL()
