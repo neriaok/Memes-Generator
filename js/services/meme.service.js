@@ -4,13 +4,13 @@ const STORAGE_KEY = 'meme'
 var gMeme = []
 
 var gImgs = []
-var gSelectedImg 
-var gEv 
+var gSelectedImg
+var gEv
 
 
 const PICTURE_NUM = 18
 
-var gKeywordSearchCountMap = {'all':20 , 'funny': 20, 'animal': 20, 'bad': 20 , 'awkward':20,'happy':20,'sad':20 }
+var gKeywordSearchCountMap = { 'all': 20, 'funny': 20, 'animal': 20, 'bad': 20, 'awkward': 20, 'happy': 20, 'sad': 20 }
 
 var gCentences = [
     "I’m not arguing, I’m just explaining why I’m right",
@@ -53,25 +53,6 @@ function createMeme(meme, imgId, lineIdx, clr) {
     }
 }
 
-
-function createImg(ID) {
-    return [
-        {
-            id: ID,
-            url: `img/${ID}.jpg`,
-            keywords: ['all']
-        }
-    ]
-}
-
-function _createImgs() {
-    for (let i = 1; i < PICTURE_NUM + 1; i++) {
-        gImgs.push(createImg(i))
-    }
-    putKeywords()
-    _saveToStorage()
-}
-
 function putKeywords() {
     for (let i = 0; i < PICTURE_NUM + 1; i++) {
         if (i === 4 || i === 6 || i === 8 || i === 9 || i === 15) {
@@ -95,24 +76,14 @@ function putKeywords() {
     }
 }
 
-function growSize(className){
+function growSize(className) {
     console.log(className);
     gKeywordSearchCountMap[`${className}`]++
     var fontSize = gKeywordSearchCountMap[`${className}`]
     console.log(fontSize);
-    
+
     document.querySelector(`.${className}`).style.fontSize = `${fontSize++}` + `px`
-    
-}
 
-function filterImgs(filterBy) {
-    var imgs = gImgs
-    // console.log(imgs.keywords);
-
-    imgs = imgs.filter(img => img[0].keywords.includes(filterBy))
-    console.log(imgs);
-
-    return imgs
 }
 
 function setLineTxt() {
@@ -138,6 +109,19 @@ function onDownloadCanvas(elLink) {
     const dataUrl = gCanvas.toDataURL()
     elLink.href = dataUrl
     elLink.download = 'my-img'
+}
+
+function onClearCanvas() {
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
+    gCtx.drawImage(gSelectedImg, 0, 0, gElCanvas.width, gElCanvas.height)
+}
+
+function changeSize(chose) {
+    if (chose) {
+        gMeme[0].lines[0].size++
+    } else {
+        gMeme[0].lines[0].size--
+    }
 }
 
 function _saveToStorage() {
